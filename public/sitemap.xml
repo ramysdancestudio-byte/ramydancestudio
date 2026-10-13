@@ -1,9 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Homepage & Core Studio Information -->
   <url>
     <loc>https://www.ramysdancestudio.com/</loc>
     <lastmod>2026-10-13</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.ramysdancestudio.com/official-banner.jpg</image:loc>
+      <image:title>Ramy's Dance Studio Ranchi Official Studio Banner</image:title>
+      <image:caption>Premier Dance Academy &amp; Choreography Studio on Kutchery Road, Ranchi</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ramysdancestudio.com/logo-transparent.png</image:loc>
+      <image:title>Ramy's Dance Studio Official Logo</image:title>
+      <image:caption>Official Dance Studio Brand Logo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ramysdancestudio.com/kids-dance.jpg</image:loc>
+      <image:title>Kids Dance Classes Ranchi</image:title>
+      <image:caption>Specialized dance batches for children and beginners</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ramysdancestudio.com/bollywood-ladies.jpg</image:loc>
+      <image:title>Ladies Bollywood Dance Batch Ranchi</image:title>
+      <image:caption>Exclusive fitness, rhythm and Bollywood choreography for ladies</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ramysdancestudio.com/wedding-choreography.jpg</image:loc>
+      <image:title>Wedding Sangeet Choreography Ranchi</image:title>
+      <image:caption>Bride &amp; Groom, family and couple dance choreography</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ramysdancestudio.com/beginner-dance.jpg</image:loc>
+      <image:title>Beginner Dance Batch</image:title>
+      <image:caption>Step-by-step dance foundation for youth and beginners</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ramysdancestudio.com/advance-dance.jpg</image:loc>
+      <image:title>Advanced Hip-Hop &amp; Contemporary Training</image:title>
+      <image:caption>Pro stage performance &amp; battle level training</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ramysdancestudio.com/gymnastic.jpg</image:loc>
+      <image:title>Gymnastics &amp; Acrobatics Dance Classes</image:title>
+      <image:caption>Flexibility, jumps, flips and stunt training</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ramysdancestudio.com/private-class.jpg</image:loc>
+      <image:title>1-on-1 Private Dance Training</image:title>
+      <image:caption>Personalized dance sessions tailored to individual goals</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ramysdancestudio.com/home-service.jpg</image:loc>
+      <image:title>Home Service Dance Classes</image:title>
+      <image:caption>Certified dance trainers at your home or society</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ramysdancestudio.com/job-person.jpg</image:loc>
+      <image:title>Working Professionals Weekend &amp; Evening Dance Batch</image:title>
+      <image:caption>Flexible weekend and evening hours for corporate employees</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Categories Section -->
+  <url>
+    <loc>https://www.ramysdancestudio.com/#categories</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Choreography Section -->
+  <url>
+    <loc>https://www.ramysdancestudio.com/#choreography</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Achievements Showcase -->
+  <url>
+    <loc>https://www.ramysdancestudio.com/#achievements</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Reviews & Testimonials -->
+  <url>
+    <loc>https://www.ramysdancestudio.com/#reviews</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Studio Location & Contact -->
+  <url>
+    <loc>https://www.ramysdancestudio.com/#location</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
