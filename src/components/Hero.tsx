@@ -145,14 +145,31 @@ export const Hero: React.FC<HeroProps> = () => {
         <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-black/60 via-black/15 to-transparent pointer-events-none" />
       </div>
 
-      {/* Main Center-Bottom Action - Liquid Glass Button Plus */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-16 md:pb-20 flex flex-col items-center justify-center text-center">
-        <div className="flex items-center justify-center mt-6">
+      {/* Main Center-Bottom Action - Brand Crest & Liquid Glass Button */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 md:pb-20 flex flex-col items-center justify-center text-center">
+        {/* Prominent Official Brand Seal & Studio Name in Hero */}
+        <div className="flex flex-col items-center justify-center mb-5 sm:mb-6 pointer-events-none select-none">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-white p-1 sm:p-1.5 shadow-2xl ring-4 ring-white/30 flex items-center justify-center mb-2.5 sm:mb-3 overflow-hidden">
+            <img
+              src="/logo-badge.png"
+              alt="Ramy's Dance Studio Official Logo"
+              className="w-full h-full object-cover rounded-full"
+            />
+          </div>
+          <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black font-display text-white tracking-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] uppercase">
+            RAMY&apos;S DANCE STUDIO
+          </h1>
+          <p className="text-xs sm:text-sm md:text-base text-white/90 font-bold tracking-wide drop-shadow-[0_1px_6px_rgba(0,0,0,0.95)] mt-1 max-w-md">
+            Premier Dance Academy in Ranchi • All Categories
+          </p>
+        </div>
+
+        <div className="flex items-center justify-center">
           <LiquidGlassButton
             onClick={() => scrollToSection('categories')}
             icon={<ArrowDown className="w-4 h-4 stroke-[3]" />}
             iconPosition="right"
-            padding="px-10 py-4.5"
+            padding="px-8 sm:px-10 py-3.5 sm:py-4.5"
           >
             CATEGORIES
           </LiquidGlassButton>

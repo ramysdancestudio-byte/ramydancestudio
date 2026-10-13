@@ -31,11 +31,13 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ onOpenBooking }) =
           {/* Left Column: Brand & Direct Action (spans 5 cols) */}
           <div className="md:col-span-5 space-y-5">
             <div className="flex items-center gap-3.5">
-              <img
-                src="/logo-transparent.png"
-                alt="Ramy's Dance Studio"
-                className="h-14 sm:h-16 w-auto object-contain shrink-0"
-              />
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white p-1 shadow-md ring-2 ring-white/30 flex items-center justify-center shrink-0 overflow-hidden">
+                <img
+                  src="/logo-badge.png"
+                  alt="Ramy's Dance Studio"
+                  className="w-full h-full object-cover rounded-full"
+                />
+              </div>
               <div className="flex flex-col">
                 <span className="text-[#0066FF] text-xs font-black tracking-[0.25em] uppercase">
                   {studioInfo.brandKicker}
