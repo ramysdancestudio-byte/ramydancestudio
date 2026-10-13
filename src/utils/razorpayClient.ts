@@ -127,7 +127,7 @@ export async function openRazorpayCheckout(params: PaymentInitiationParams): Pro
           ? 'Special 30% Off'
           : 'Course Admission'
       })`,
-      image: '/logo-badge.png',
+      image: '/logo-transparent.png',
       order_id: orderData.orderId.startsWith('order_') ? orderData.orderId : undefined,
       prefill: {
         name: params.studentName,

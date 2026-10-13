@@ -59,14 +59,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenDemoBooking
       >
         <div className="w-full px-3 sm:px-6 md:px-8 lg:px-10 flex items-center justify-between gap-2">
           {/* Full Left: Brand Lockup */}
-          <a href="#" className="flex items-center gap-2 sm:gap-3.5 select-none group min-w-0 shrink-0">
-            <div className="relative shrink-0 rounded-full bg-white p-0.5 sm:p-1 shadow-md ring-1 sm:ring-2 ring-white/60 flex items-center justify-center overflow-hidden">
-              <img
-                src="/logo-badge.png"
-                alt="Ramy's Dance Studio Logo"
-                className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-full object-cover shrink-0 group-hover:scale-105 transition-transform duration-200"
-              />
-            </div>
+          <a href="#" className="flex items-center gap-2 sm:gap-3.5 select-none group min-w-0 shrink">
+            <img
+              src="/logo-transparent.png"
+              alt="Ramy's Dance Studio"
+              className="h-11 w-11 xs:h-12 xs:w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 lg:h-22 lg:w-22 object-contain group-hover:scale-105 transition-transform duration-200 shrink-0"
+            />
             <div className="flex flex-col justify-center min-w-0">
               <div
                 className={`font-black font-display tracking-tight transition-colors ${
@@ -152,25 +150,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenDemoBooking
               : 'bg-neutral-950/98 border-neutral-800 text-white'
           }`}
         >
-          {/* Brand Header in Mobile Drawer */}
-          <div className="flex items-center gap-3 pb-3 border-b border-neutral-200/40 dark:border-white/10">
-            <div className="w-11 h-11 rounded-full bg-white p-0.5 shadow-md ring-1 ring-black/10 flex items-center justify-center shrink-0 overflow-hidden">
-              <img
-                src="/logo-badge.png"
-                alt="Ramy's Dance Studio Logo"
-                className="w-full h-full object-cover rounded-full"
-              />
-            </div>
-            <div className="flex flex-col leading-tight min-w-0">
-              <span className="font-black font-display text-sm tracking-wide">
-                RAMY&apos;S DANCE STUDIO
-              </span>
-              <span className="text-[11px] opacity-70">
-                Official Dance Academy • Ranchi
-              </span>
-            </div>
-          </div>
-
           {/* Navigation Links */}
           <nav className="flex flex-col space-y-2 text-base font-semibold">
             {navLinks.map((link) => (
