@@ -35,7 +35,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenDemoBooking
     { name: 'Categories', href: '#categories' },
     { name: 'Achievements', href: '#achievements' },
     { name: 'Choreography', href: '#choreography' },
-    { name: 'FAQs', href: '#faqs' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {

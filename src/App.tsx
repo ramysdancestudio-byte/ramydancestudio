@@ -6,7 +6,6 @@ import { CategoriesSection } from './components/CategoriesSection';
 import { AchievementsSection } from './components/AchievementsSection';
 import { ChoreographySection } from './components/ChoreographySection';
 import { ReviewsSection } from './components/ReviewsSection';
-import { FaqSection } from './components/FaqSection';
 import { FooterSection } from './components/FooterSection';
 import { FloatingOfferButton } from './components/FloatingOfferButton';
 import {
@@ -101,9 +100,6 @@ export default function App() {
 
         {/* Live Google Review & Client Testimonials Section */}
         <ReviewsSection onOpenBooking={handleOpenBooking} />
-
-        {/* Local SEO & High-Intent FAQ Section */}
-        <FaqSection />
       </main>
 
       {/* Footer Section with Location & Contact */}
