@@ -389,6 +389,20 @@ async function startServer() {
         return res.status(400).json({ error: 'Invalid config format' });
       }
       fs.writeFileSync(HERO_CONFIG_FILE, JSON.stringify(config, null, 2), 'utf-8');
+
+      // Keep hero-poster.jpg in exact sync with chosen hero video
+      if (config.videoUrl && typeof config.videoUrl === 'string') {
+        try {
+          const cleanPath = config.videoUrl.startsWith('/') ? config.videoUrl.slice(1) : config.videoUrl;
+          const videoFullPath = path.join(PUBLIC_DIR, cleanPath);
+          if (fs.existsSync(videoFullPath)) {
+            const { exec } = require('child_process');
+            const posterPath = path.join(PUBLIC_DIR, 'hero-poster.jpg');
+            exec(`ffmpeg -y -ss 00:00:00.04 -i "${videoFullPath}" -vframes 1 -q:v 1 "${posterPath}"`, () => {});
+          }
+        } catch (_) {}
+      }
+
       return res.json({ success: true, config });
     } catch (e) {
       return res.status(500).json({ error: 'Failed to save hero config' });

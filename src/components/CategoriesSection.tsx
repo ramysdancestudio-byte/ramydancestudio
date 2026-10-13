@@ -89,7 +89,7 @@ const CategoryMedia: React.FC<{
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="none"
           className="relative z-10 w-full h-full object-cover transition-opacity duration-300 group-hover:brightness-105 pointer-events-none will-change-transform"
         />
       )}

@@ -31,6 +31,7 @@ export const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
 
   const handlePointerMove = useCallback((e: React.PointerEvent<HTMLButtonElement>) => {
     if (!buttonRef.current) return;
+    if (e.pointerType === 'touch') return; // Bypass heavy 3D math on touch screens to keep response instant
     const rect = buttonRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -52,6 +53,7 @@ export const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
   }, []);
 
   const handlePointerEnter = useCallback((e: React.PointerEvent<HTMLButtonElement>) => {
+    if (e.pointerType === 'touch') return;
     setIsHovered(true);
     handlePointerMove(e);
   }, [handlePointerMove]);
@@ -79,10 +81,11 @@ export const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
       onPointerLeave={handlePointerLeave}
       onPointerDown={() => setIsPressed(true)}
       onPointerUp={() => setIsPressed(false)}
-      className={`group relative inline-flex items-center justify-center select-none cursor-pointer border-0 bg-transparent text-white focus:outline-none transition-transform duration-200 ease-out ${className}`}
+      className={`group relative inline-flex items-center justify-center select-none cursor-pointer border-0 bg-transparent text-white focus:outline-none transition-transform duration-150 ease-out active:scale-95 ${className}`}
       style={{
         perspective: '900px',
         WebkitTapHighlightColor: 'transparent',
+        touchAction: 'manipulation',
       }}
     >
       {/* 3D Optical Face Container */}

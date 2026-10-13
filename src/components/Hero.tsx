@@ -26,6 +26,7 @@ export const Hero: React.FC<HeroProps> = () => {
     brightness: 1,
     contrast: 1,
   });
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   // Sync latest video URL and framing from server
   useEffect(() => {
@@ -47,6 +48,11 @@ export const Hero: React.FC<HeroProps> = () => {
       .catch(() => {});
   }, []);
 
+  // Reset playing state on source change
+  useEffect(() => {
+    setIsVideoPlaying(false);
+  }, [heroConfig.videoUrl]);
+
   // Ensure autoplay works buttery-smooth and instantly across all browsers
   useEffect(() => {
     const vid = videoRef.current;
@@ -59,16 +65,20 @@ export const Hero: React.FC<HeroProps> = () => {
       vid.muted = true;
       const playPromise = vid.play();
       if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          const unlock = () => {
-            vid.muted = true;
-            vid.play().catch(() => {});
-            window.removeEventListener('click', unlock);
-            window.removeEventListener('touchstart', unlock);
-          };
-          window.addEventListener('click', unlock, { once: true });
-          window.addEventListener('touchstart', unlock, { once: true });
-        });
+        playPromise
+          .then(() => {
+            setIsVideoPlaying(true);
+          })
+          .catch(() => {
+            const unlock = () => {
+              vid.muted = true;
+              vid.play().then(() => setIsVideoPlaying(true)).catch(() => {});
+              window.removeEventListener('click', unlock);
+              window.removeEventListener('touchstart', unlock);
+            };
+            window.addEventListener('click', unlock, { once: true });
+            window.addEventListener('touchstart', unlock, { once: true });
+          });
       }
     };
 
@@ -86,7 +96,7 @@ export const Hero: React.FC<HeroProps> = () => {
     <section className="relative w-full min-h-screen flex flex-col justify-end overflow-hidden bg-[#0C0E12] select-none">
       {/* Background Full-Screen Looping Video */}
       <div className="absolute inset-0 z-0 overflow-hidden bg-black">
-        {/* Instant crisp background poster frame */}
+        {/* Instant crisp background poster frame - pixel-perfect match to video */}
         <img
           src="/hero-poster.jpg"
           alt="Ramy's Dance Studio Hero"
@@ -95,7 +105,8 @@ export const Hero: React.FC<HeroProps> = () => {
           fetchPriority="high"
           style={{
             objectPosition: `${heroConfig.xPosition}% ${heroConfig.yPosition}%`,
-            transform: 'translate3d(0, 0, 0)',
+            transform: `scale(${heroConfig.zoom || 1}) translate3d(0, 0, 0)`,
+            filter: `brightness(${heroConfig.brightness || 1}) contrast(${heroConfig.contrast || 1})`,
           }}
           className="absolute inset-0 w-full h-full object-cover pointer-events-none will-change-transform z-0"
         />
@@ -109,23 +120,21 @@ export const Hero: React.FC<HeroProps> = () => {
           muted
           playsInline
           preload="auto"
-          onLoadedMetadata={() => {
-            if (videoRef.current) {
-              videoRef.current.muted = true;
-              videoRef.current.play().catch(() => {});
-            }
-          }}
+          onPlaying={() => setIsVideoPlaying(true)}
           onCanPlay={() => {
             if (videoRef.current) {
               videoRef.current.muted = true;
-              videoRef.current.play().catch(() => {});
+              videoRef.current.play().then(() => setIsVideoPlaying(true)).catch(() => {});
             }
           }}
           style={{
             objectPosition: `${heroConfig.xPosition}% ${heroConfig.yPosition}%`,
-            transform: 'translate3d(0, 0, 0)',
+            transform: `scale(${heroConfig.zoom || 1}) translate3d(0, 0, 0)`,
+            filter: `brightness(${heroConfig.brightness || 1}) contrast(${heroConfig.contrast || 1})`,
             backfaceVisibility: 'hidden',
-            willChange: 'transform',
+            willChange: 'transform, opacity',
+            opacity: isVideoPlaying ? 1 : 0,
+            transition: 'opacity 350ms cubic-bezier(0.2, 0.8, 0.2, 1)',
           }}
           className="relative z-10 w-full h-full object-cover pointer-events-none will-change-transform"
         >

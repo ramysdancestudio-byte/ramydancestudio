@@ -79,6 +79,7 @@ const ChoreoCardVideo: React.FC<{
 }> = ({ item }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const videoRef = React.useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = React.useState(false);
   const posterUrl = item.videoUrl ? item.videoUrl.replace(/\.mp4$/i, '.jpg') : '';
 
   React.useEffect(() => {
@@ -86,7 +87,7 @@ const ChoreoCardVideo: React.FC<{
       ([entry]) => {
         if (videoRef.current) {
           if (entry.isIntersecting) {
-            videoRef.current.play().catch(() => {});
+            videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
           } else {
             videoRef.current.pause();
           }
@@ -124,10 +125,13 @@ const ChoreoCardVideo: React.FC<{
         loop
         muted
         playsInline
-        preload="metadata"
+        preload="none"
+        onPlaying={() => setIsPlaying(true)}
         style={{
           objectPosition: `${item.xPosition ?? 50}% ${item.yPosition}%`,
           filter: `brightness(${item.brightness}) contrast(${item.contrast || 1.04})`,
+          opacity: isPlaying ? 1 : 0,
+          transition: 'opacity 300ms ease',
         }}
         className="relative z-10 w-full h-full object-cover transition-all duration-200 pointer-events-none will-change-transform"
       />

@@ -66,6 +66,11 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
 body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -74,8 +79,20 @@ body {
   overscroll-behavior-y: none;
 }
 
+/* Lightning-fast mobile tap response (eliminates 300ms mobile tap delay) & snappy tactile feedback */
+button, a, [role="button"], input[type="button"], input[type="submit"] {
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+button:active, [role="button"]:active {
+  transform: scale(0.97);
+  transition: transform 60ms cubic-bezier(0.2, 0.8, 0.4, 1);
+}
+
 /* Hardware accelerated video and canvas performance */
 video {
   transform: translateZ(0);
   backface-visibility: hidden;
 }
+
