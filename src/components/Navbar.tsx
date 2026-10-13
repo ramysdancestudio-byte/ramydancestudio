@@ -57,26 +57,26 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenDemoBooking
             : 'bg-transparent border-b border-transparent py-2.5 sm:py-3.5 text-white'
         }`}
       >
-        <div className="w-full px-3.5 sm:px-6 md:px-8 lg:px-10 flex items-center justify-between">
+        <div className="w-full px-3 sm:px-6 md:px-8 lg:px-10 flex items-center justify-between gap-2">
           {/* Full Left: Brand Lockup */}
-          <a href="#" className="flex items-center gap-2.5 sm:gap-3.5 select-none group shrink-0">
+          <a href="#" className="flex items-center gap-2 sm:gap-3.5 select-none group min-w-0 shrink">
             <img
               src="/logo-transparent.png"
               alt="Ramy's Dance Studio"
-              className="h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 lg:h-22 lg:w-22 object-contain group-hover:scale-105 transition-transform duration-200 shrink-0"
+              className="h-11 w-11 xs:h-12 xs:w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 lg:h-22 lg:w-22 object-contain group-hover:scale-105 transition-transform duration-200 shrink-0"
             />
-            <div className="flex flex-col justify-center shrink-0">
+            <div className="flex flex-col justify-center min-w-0">
               <div
                 className={`font-black font-display tracking-tight transition-colors ${
-                  isScrolled ? 'text-neutral-950' : 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]'
+                  isScrolled ? 'text-neutral-950' : 'text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)]'
                 }`}
               >
                 {/* Mobile View: Strictly 2 lines */}
                 <div className="sm:hidden flex flex-col leading-none">
-                  <span className="text-[13px] font-black tracking-wide whitespace-nowrap">
+                  <span className="text-[12px] font-black tracking-wide whitespace-nowrap">
                     RAMY&apos;S
                   </span>
-                  <span className="text-xs font-black tracking-tight whitespace-nowrap mt-0.5">
+                  <span className="text-[11px] font-black tracking-tight whitespace-nowrap mt-0.5">
                     DANCE STUDIO
                   </span>
                 </div>
@@ -114,24 +114,28 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenDemoBooking
             {/* Action Button: Responsive sizing */}
             <button
               onClick={() => (onOpenDemoBooking ? onOpenDemoBooking() : onOpenBooking())}
-              className="flex items-center gap-1.5 sm:gap-2 bg-[#0066FF] hover:bg-[#0052cc] text-white font-extrabold text-xs sm:text-sm px-2.5 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full transition-all shadow-md active:scale-95 cursor-pointer whitespace-nowrap"
+              className="flex items-center gap-1 sm:gap-2 bg-[#0066FF] hover:bg-[#0052cc] text-white font-extrabold text-[11px] xs:text-xs sm:text-sm px-2.5 xs:px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full transition-all shadow-md active:scale-95 cursor-pointer whitespace-nowrap shrink-0"
             >
               <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]" />
               <span className="hidden sm:inline">BOOK DEMO ₹49</span>
-              <span className="inline sm:hidden">Book Demo ₹49</span>
+              <span className="inline sm:hidden">Demo ₹49</span>
             </button>
 
-            {/* Mobile & Tablet Hamburger Toggle (3-Bar Icon) - Visible on mobile & tablet (< 1024px), hidden on laptop & desktop (>= 1024px) */}
+            {/* Mobile & Tablet Hamburger Toggle (3-Bar Icon) - Visible on mobile & tablet (< 1024px) */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`flex lg:hidden p-2 rounded-lg transition-colors cursor-pointer items-center justify-center ${
+              className={`flex lg:hidden p-2 xs:p-2.5 rounded-xl transition-all duration-200 cursor-pointer items-center justify-center shrink-0 border ${
                 isScrolled
-                  ? 'bg-neutral-100 text-neutral-800 hover:bg-neutral-200'
-                  : 'bg-black/30 backdrop-blur-xs text-white hover:bg-black/50'
+                  ? 'bg-neutral-100 border-neutral-200 text-neutral-900 hover:bg-neutral-200 active:scale-95'
+                  : 'bg-black/45 border-white/20 text-white shadow-lg backdrop-blur-md hover:bg-black/60 active:scale-95'
               }`}
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.5]" />
+              ) : (
+                <Menu className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.5]" />
+              )}
             </button>
           </div>
         </div>
