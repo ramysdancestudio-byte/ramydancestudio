@@ -107,8 +107,8 @@ const ChoreoCardVideo: React.FC<{
       {posterUrl && (
         <img
           src={posterUrl}
-          alt={item.title}
-          loading="eager"
+          alt={`${item.title} Choreography - Ramy's Dance Studio Ranchi`}
+          loading="lazy"
           decoding="async"
           style={{
             objectPosition: `${item.xPosition ?? 50}% ${item.yPosition}%`,

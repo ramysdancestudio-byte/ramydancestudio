@@ -89,7 +89,7 @@ export const AchievementsSection: React.FC = () => {
                   {/* Media Image */}
                   <img
                     src={item.imageUrl}
-                    alt={item.title || 'Studio Achievement'}
+                    alt={item.title ? `${item.title} - Ramy's Dance Studio Ranchi` : "Ramy's Dance Studio Performance Showcase Ranchi"}
                     style={{
                       objectPosition: `${item.xPosition ?? 50}% ${item.yPosition ?? 50}%`,
                       filter: `brightness(${item.brightness ?? 1.0}) contrast(${item.contrast ?? 1.0})`,

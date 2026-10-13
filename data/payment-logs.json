@@ -116,10 +116,10 @@
     "source": "RECONCILER",
     "status": "ORDER_EXPIRED_TIMEOUT",
     "masked_payload": {
-      "minutesElapsed": 1531
+      "minutesElapsed": 2672
     },
     "ip": "system-reconciler",
-    "log_id": "log_1791823244768_97fbc4cb",
-    "timestamp": "2026-10-12T16:40:44.769Z"
+    "log_id": "log_1791891699513_175a7825",
+    "timestamp": "2026-10-13T11:41:39.514Z"
   }
 ]

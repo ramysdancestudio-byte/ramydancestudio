@@ -63,10 +63,9 @@ const CategoryMedia: React.FC<{
       {/* Instant crisp poster background: shows the real first frame with zero flicker */}
       <img
         src={safeImageUrl}
-        alt={title}
-        loading="eager"
+        alt={`${title} - Ramy's Dance Studio Ranchi Dance Classes`}
+        loading="lazy"
         decoding="async"
-        fetchPriority="high"
         style={{
           objectPosition: `${videoUrl ? vX : iX}% ${videoUrl ? vY : iY}%`,
           transform: `scale(${videoUrl ? vZoom : iZoom}) translateZ(0)`,
