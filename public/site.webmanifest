@@ -1,0 +1,21 @@
+{
+  "name": "Ramy's Dance Studio",
+  "short_name": "Ramy's Dance",
+  "description": "Premier Dance Academy & Choreography Studio in Ranchi",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0c",
+  "theme_color": "#f95721",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
