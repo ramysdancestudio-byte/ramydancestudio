@@ -39,7 +39,7 @@ export const studioInfo: StudioInfo = {
   youtubeChannelId: "UCCXbnQCjM8I_hNBBag60mLw",
   hours: {
     weekdays: "Mon – Sat: 10:00 AM – 7:00 PM",
-    sunday: "Sunday: 8:00 AM – 5:00 PM"
+    sunday: "Sunday: 9:00 AM – 3:00 PM"
   },
   demoPriceText: "₹49",
   upiId: "8340158178@ybi",

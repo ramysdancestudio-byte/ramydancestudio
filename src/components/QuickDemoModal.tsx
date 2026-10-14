@@ -20,8 +20,8 @@ interface QuickDemoModalProps {
   categories?: unknown[];
 }
 
-// Time slots strictly between 11:00 AM and 7:00 PM
-const DEMO_TIME_SLOTS = [
+// Time slots strictly between 11:00 AM and 7:00 PM for Monday to Saturday
+const WEEKDAY_TIME_SLOTS = [
   '11:00 AM – 12:00 PM',
   '12:00 PM – 01:00 PM',
   '01:00 PM – 02:00 PM',
@@ -30,6 +30,16 @@ const DEMO_TIME_SLOTS = [
   '04:00 PM – 05:00 PM',
   '05:00 PM – 06:00 PM',
   '06:00 PM – 07:00 PM',
+];
+
+// Time slots strictly between 9:00 AM and 3:00 PM for Sunday
+const SUNDAY_TIME_SLOTS = [
+  '09:00 AM – 10:00 AM',
+  '10:00 AM – 11:00 AM',
+  '11:00 AM – 12:00 PM',
+  '12:00 PM – 01:00 PM',
+  '01:00 PM – 02:00 PM',
+  '02:00 PM – 03:00 PM',
 ];
 
 // Available days (Monday to Sunday)
@@ -54,7 +64,37 @@ export const QuickDemoModal: React.FC<QuickDemoModalProps> = ({
   const [phone, setPhone] = useState('');
   const [selectedDay, setSelectedDay] = useState('Mon');
   const [selectedDate, setSelectedDate] = useState('');
-  const [selectedTimeSlot, setSelectedTimeSlot] = useState(DEMO_TIME_SLOTS[0]);
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState(WEEKDAY_TIME_SLOTS[0]);
+
+  // Active time slots based on chosen day
+  const isSunday = selectedDay === 'Sun';
+  const activeTimeSlots = isSunday ? SUNDAY_TIME_SLOTS : WEEKDAY_TIME_SLOTS;
+
+  const handleSelectDay = (dayId: string) => {
+    setSelectedDay(dayId);
+    const targetSlots = dayId === 'Sun' ? SUNDAY_TIME_SLOTS : WEEKDAY_TIME_SLOTS;
+    if (!targetSlots.includes(selectedTimeSlot)) {
+      setSelectedTimeSlot(targetSlots[0]);
+    }
+  };
+
+  const handleDateChange = (dateVal: string) => {
+    setSelectedDate(dateVal);
+    if (dateVal) {
+      const parts = dateVal.split('-');
+      if (parts.length === 3) {
+        const year = parseInt(parts[0], 10);
+        const month = parseInt(parts[1], 10) - 1;
+        const day = parseInt(parts[2], 10);
+        const dateObj = new Date(year, month, day);
+        const dayIds = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const matchedDayId = dayIds[dateObj.getDay()];
+        if (matchedDayId) {
+          handleSelectDay(matchedDayId);
+        }
+      }
+    }
+  };
 
   // UI state
   const [errorMessage, setErrorMessage] = useState('');
@@ -112,7 +152,7 @@ export const QuickDemoModal: React.FC<QuickDemoModalProps> = ({
           `🎟️ *DEMO BOOKING DETAILS:*\n` +
           `• *Class:* Studio Trial Demo Class (₹49)\n` +
           `• *Preferred Day:* ${dayLabel}${selectedDate ? ` (${selectedDate})` : ''}\n` +
-          `• *Time Slot:* ${selectedTimeSlot} (11:00 AM – 7:00 PM)\n\n` +
+          `• *Time Slot:* ${selectedTimeSlot} (${selectedDay === 'Sun' ? '09:00 AM – 03:00 PM' : '11:00 AM – 07:00 PM'})\n\n` +
           `👤 *STUDENT DETAILS:*\n` +
           `• *Student Name:* ${name.trim()}\n` +
           `• *WhatsApp Number:* ${cleanPhone}\n\n` +
@@ -218,23 +258,42 @@ export const QuickDemoModal: React.FC<QuickDemoModalProps> = ({
                     <Calendar className="w-3.5 h-3.5 text-[#0066FF]" />
                     2. Select Day
                   </label>
-                  <span className="text-[11px] text-neutral-500 font-medium">Mon to Sun Open</span>
+                  <span className="text-[11px] font-semibold">
+                    {isSunday ? (
+                      <span className="text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200">
+                        Sunday Special: 9 AM – 3 PM
+                      </span>
+                    ) : (
+                      <span className="text-neutral-500">Mon to Sun Open</span>
+                    )}
+                  </span>
                 </div>
                 <div className="grid grid-cols-7 gap-1.5">
-                  {DEMO_DAYS.map((d) => (
-                    <button
-                      key={d.id}
-                      type="button"
-                      onClick={() => setSelectedDay(d.id)}
-                      className={`py-2 px-1 rounded-xl text-center transition-all cursor-pointer ${
-                        selectedDay === d.id
-                          ? 'bg-[#0066FF] text-white font-black shadow-md ring-2 ring-blue-300 scale-105'
-                          : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200 font-bold'
-                      }`}
-                    >
-                      <span className="block text-xs">{d.short}</span>
-                    </button>
-                  ))}
+                  {DEMO_DAYS.map((d) => {
+                    const isSunBtn = d.id === 'Sun';
+                    const isSelected = selectedDay === d.id;
+                    return (
+                      <button
+                        key={d.id}
+                        type="button"
+                        onClick={() => handleSelectDay(d.id)}
+                        className={`py-2 px-1 rounded-xl text-center transition-all cursor-pointer relative ${
+                          isSelected
+                            ? 'bg-[#0066FF] text-white font-black shadow-md ring-2 ring-blue-300 scale-105'
+                            : isSunBtn
+                            ? 'bg-amber-50 text-amber-800 hover:bg-amber-100 font-bold border border-amber-200'
+                            : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200 font-bold'
+                        }`}
+                      >
+                        <span className="block text-xs">{d.short}</span>
+                        {isSunBtn && !isSelected && (
+                          <span className="block text-[8px] text-amber-700 font-black leading-none mt-0.5">
+                            9-3
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
                 </div>
                 {/* Optional specific date */}
                 <div className="pt-1">
@@ -242,31 +301,39 @@ export const QuickDemoModal: React.FC<QuickDemoModalProps> = ({
                     type="date"
                     min={new Date().toISOString().split('T')[0]}
                     value={selectedDate}
-                    onChange={(e) => setSelectedDate(e.target.value)}
+                    onChange={(e) => handleDateChange(e.target.value)}
                     className="w-full px-3 py-1.5 rounded-lg border border-neutral-200 text-xs text-neutral-700 focus:outline-none focus:ring-1 focus:ring-[#0066FF]"
                     placeholder="Specific Date (Optional)"
                   />
                 </div>
               </div>
 
-              {/* Time Selection between 11 AM and 7 PM */}
+              {/* Time Selection: Sunday (9 AM - 3 PM) vs Mon-Sat (11 AM - 7 PM) */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <label className="text-xs font-bold text-neutral-700 uppercase tracking-wider flex items-center gap-1.5">
                     <Clock className="w-3.5 h-3.5 text-[#0066FF]" />
-                    3. Select Time (11:00 AM to 7:00 PM)
+                    {isSunday ? (
+                      <span>3. Select Time (09:00 AM to 03:00 PM)</span>
+                    ) : (
+                      <span>3. Select Time (11:00 AM to 07:00 PM)</span>
+                    )}
                   </label>
-                  <span className="text-[11px] text-neutral-500 font-medium">1-Hour Slot</span>
+                  <span className={`text-[11px] font-bold px-2 py-0.5 rounded-md ${
+                    isSunday ? 'bg-amber-100 text-amber-800 border border-amber-200' : 'bg-blue-50 text-[#0066FF]'
+                  }`}>
+                    {isSunday ? 'Sunday Timing' : '1-Hour Slot'}
+                  </span>
                 </div>
                 <div className="grid grid-cols-2 gap-2">
-                  {DEMO_TIME_SLOTS.map((slot) => (
+                  {activeTimeSlots.map((slot) => (
                     <button
                       key={slot}
                       type="button"
                       onClick={() => setSelectedTimeSlot(slot)}
                       className={`px-3 py-2.5 rounded-xl text-xs font-bold text-left transition-all border flex items-center justify-between cursor-pointer ${
                         selectedTimeSlot === slot
-                          ? 'border-[#0066FF] bg-blue-50/80 text-[#0066FF] shadow-xs'
+                          ? 'border-[#0066FF] bg-blue-50/80 text-[#0066FF] shadow-xs ring-1 ring-blue-400'
                           : 'border-neutral-200 bg-white text-neutral-700 hover:bg-neutral-50'
                       }`}
                     >
