@@ -13,7 +13,6 @@ interface AutoEnquiryModalProps {
 const PROGRAM_OPTIONS = [
   'Kids Foundation Dance',
   'Bollywood & Ladies Batch',
-  'Hip-Hop & Urban Freestyle',
   'Advance Professional Batch',
   'Gymnastics & Flexibility',
   'Wedding Choreography',
