@@ -141,13 +141,7 @@ export const AutoEnquiryModal: React.FC<AutoEnquiryModalProps> = ({
             <X className="w-5 h-5" />
           </button>
 
-          <div className="flex items-center gap-2 mb-2">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-              <Sparkles className="w-3 h-3" /> Quick WhatsApp Enquiry
-            </span>
-          </div>
-
-          <h2 id="enquiry-modal-title" className="text-xl sm:text-2xl font-black font-display tracking-tight text-white">
+          <h2 id="enquiry-modal-title" className="text-xl sm:text-2xl font-black font-display tracking-tight text-white pr-8">
             Get Class Details & Fees Instantly
           </h2>
           <p className="text-xs sm:text-sm text-neutral-300 mt-1">
