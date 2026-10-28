@@ -1,0 +1,51 @@
+[
+  {
+    "id": "choreo-1",
+    "title": "Kids Performance",
+    "videoUrl": "/choreography/choreo-kids.mp4",
+    "yPosition": 20,
+    "brightness": 1.1,
+    "contrast": 1.04
+  },
+  {
+    "id": "choreo-2",
+    "title": "Beginner Routine",
+    "videoUrl": "/choreography/choreo-senior.mp4",
+    "yPosition": 22,
+    "brightness": 1.05,
+    "contrast": 1.04
+  },
+  {
+    "id": "choreo-3",
+    "title": "Advance Hip-Hop Choreography",
+    "videoUrl": "/choreography/choreo-advance.mp4",
+    "yPosition": 20,
+    "brightness": 1.05,
+    "contrast": 1.04
+  },
+  {
+    "id": "choreo-4",
+    "title": "Wedding Choreography",
+    "videoUrl": "/choreography/choreo-ladies.mp4",
+    "xPosition": 50,
+    "yPosition": 25,
+    "brightness": 1,
+    "contrast": 1.04
+  },
+  {
+    "id": "choreo-5",
+    "title": "Free Style Dance",
+    "videoUrl": "/choreography/choreo-freestyle.mp4",
+    "yPosition": 20,
+    "brightness": 1,
+    "contrast": 1.04
+  },
+  {
+    "id": "choreo-6",
+    "title": "Private Class Choreography",
+    "videoUrl": "/choreography/choreo-private.mp4",
+    "yPosition": 18,
+    "brightness": 1.05,
+    "contrast": 1.04
+  }
+]

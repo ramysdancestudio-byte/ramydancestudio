@@ -1,0 +1,404 @@
+export interface BatchSchedule {
+  id: string;
+  name: string;
+  days?: string;
+  schedules: string[];
+  isFull?: boolean;
+  price?: string;
+  badge?: string;
+}
+
+export interface CategoryItem {
+  id: string;
+  title: string;
+  imageUrl: string;
+  videoUrl?: string;
+  videoXPosition?: number;
+  videoYPosition?: number;
+  videoZoom?: number;
+  imageXPosition?: number;
+  imageYPosition?: number;
+  imageZoom?: number;
+  pillTag: string;
+  levelLabel: string;
+  description: string;
+  demoPrice: string;
+  feeLabel: string;
+  monthlyFee: string;
+  trialInfo?: string;
+  batches: BatchSchedule[];
+  updatedAt?: string;
+}
+
+export const DEFAULT_CATEGORIES: CategoryItem[] = [
+  {
+    id: "kids-dance",
+    title: "Kids dance",
+    imageUrl: "/kids-dance.jpg",
+    videoUrl: "/kids-dance.mp4",
+    pillTag: "FOUNDATIONAL",
+    levelLabel: "LEVEL 1",
+    description: "Rhythm, Coordination & Confidence",
+    demoPrice: "₹49",
+    feeLabel: "Demo Registration Fee",
+    monthlyFee: "₹1,549 / month (12 sessions)",
+    trialInfo: "Trial Class Available",
+    batches: [
+      {
+        id: "batch-1",
+        name: "Batch 1",
+        days: "Thu, Sat, Sun",
+        schedules: [
+          "Thursday — 5:00 PM",
+          "Saturday — 5:00 PM",
+          "Sunday — 9:00 AM"
+        ]
+      },
+      {
+        id: "batch-2",
+        name: "Batch 2",
+        days: "Sat, Sun, Mon",
+        schedules: [
+          "Saturday — 5:00 PM",
+          "Sunday — 9:00 AM",
+          "Monday — 4:00 PM"
+        ]
+      },
+      {
+        id: "batch-3",
+        name: "Batch 3",
+        days: "Tue, Sat, Sun",
+        schedules: [
+          "Tuesday — 4:30 PM",
+          "Saturday — 4:00 PM",
+          "Sunday — 11:00 AM"
+        ]
+      }
+    ]
+  },
+  {
+    id: "senior-beginner",
+    title: "Beginner",
+    imageUrl: "/beginner-dance.jpg",
+    videoUrl: "/beginner-dance.mp4",
+    pillTag: "ALL AGES",
+    levelLabel: "ZERO EXPERIENCE NEEDED",
+    description: "Step-by-Step Fundamentals",
+    demoPrice: "₹49",
+    feeLabel: "Demo Registration Fee",
+    monthlyFee: "₹1,549 / month (12 sessions)",
+    trialInfo: "Custom Packages",
+    batches: [
+      {
+        id: "batch-1",
+        name: "Batch 1",
+        days: "Fri, Sat, Sun",
+        schedules: [
+          "Friday — 5:00 PM",
+          "Saturday — 4:00 PM",
+          "Sunday — 10:00 AM"
+        ]
+      },
+      {
+        id: "batch-2",
+        name: "Batch 2",
+        days: "Mon, Tue, Wed",
+        schedules: [
+          "Monday — 4:00 PM",
+          "Tuesday — 4:00 PM",
+          "Wednesday — 4:00 PM"
+        ]
+      }
+    ]
+  },
+  {
+    id: "advance",
+    title: "Advance",
+    imageUrl: "/advance-dance.jpg",
+    videoUrl: "/uploads/media_1791298432710_IMG_3664.mp4",
+    videoXPosition: 50,
+    videoYPosition: 12,
+    videoZoom: 1,
+    pillTag: "INTENSIVE",
+    levelLabel: "PROFESSIONAL TRACK",
+    description: "Intensive Technique & Choreography",
+    demoPrice: "₹49",
+    feeLabel: "Demo Registration Fee",
+    monthlyFee: "₹1,549 / month (12 sessions)",
+    trialInfo: "Trial Class Available",
+    batches: [
+      {
+        id: "batch-1",
+        name: "Batch 1",
+        days: "Mon, Tue, Wed",
+        schedules: [
+          "Monday — 5:00 PM",
+          "Tuesday — 5:00 PM",
+          "Wednesday — 5:00 PM"
+        ]
+      },
+      {
+        id: "batch-2",
+        name: "Batch 2",
+        days: "Thu, Fri, Sat",
+        isFull: true,
+        badge: "FULL",
+        schedules: [
+          "Thursday — 5:00 PM",
+          "Friday — 5:00 PM",
+          "Saturday — 5:00 PM"
+        ]
+      }
+    ]
+  },
+  {
+    id: "gymnastic",
+    title: "Gymnastic",
+    imageUrl: "/uploads/media_1791299159900_Colourful_Kids__Gymnastics_Poster.jpg",
+    imageXPosition: 5,
+    imageYPosition: 50,
+    imageZoom: 1,
+    pillTag: "ACROBATICS",
+    levelLabel: "ALL LEVELS",
+    description: "Flexibility, Acrobatics & Core Balance",
+    demoPrice: "₹49",
+    feeLabel: "Demo Registration Fee",
+    monthlyFee: "₹1,950 / month (4 Days - Popular)",
+    trialInfo: "Trial Class Available",
+    batches: [
+      {
+        id: "gym-batch-2days",
+        name: "2 Days",
+        days: "Sat, Sun",
+        price: "₹1,249",
+        schedules: [
+          "Saturday — 5:00 PM",
+          "Sunday — 10:00 AM"
+        ]
+      },
+      {
+        id: "gym-batch-3days",
+        name: "3 Days",
+        days: "Wed, Fri, Sat",
+        price: "₹1,549",
+        schedules: [
+          "Wednesday — 5:00 PM",
+          "Friday — 5:00 PM",
+          "Saturday — 5:00 PM"
+        ]
+      },
+      {
+        id: "gym-batch-4days",
+        name: "4 Days",
+        days: "Wed, Fri, Sat, Sun",
+        price: "₹1,950",
+        badge: "POPULAR",
+        schedules: [
+          "Wednesday — 5:00 PM",
+          "Friday — 5:00 PM",
+          "Saturday — 5:00 PM",
+          "Sunday — 10:00 AM"
+        ]
+      }
+    ]
+  },
+  {
+    id: "bollywood-ladies",
+    title: "Bollywood Ladies",
+    imageUrl: "/bollywood-ladies.jpg",
+    videoUrl: "/bollywood-ladies.mp4",
+    pillTag: "ENERGIZING",
+    levelLabel: "LADIES SPECIAL",
+    description: "Vibrant Beats, Expression & Fitness",
+    demoPrice: "₹49",
+    feeLabel: "Demo Registration Fee",
+    monthlyFee: "₹1,549 / month (12 sessions)",
+    trialInfo: "Trial Class Available",
+    batches: [
+      {
+        id: "batch-1",
+        name: "Morning Ladies Batch",
+        days: "Tue, Wed, Thu, Fri",
+        schedules: [
+          "Tuesday — 11:00 AM",
+          "Wednesday — 11:00 AM",
+          "Thursday — 11:00 AM",
+          "Friday — 11:00 AM"
+        ]
+      },
+      {
+        id: "batch-2",
+        name: "Evening Ladies Batch",
+        days: "Mon, Tue, Wed, Thu",
+        schedules: [
+          "7:00 PM to 8:00 PM"
+        ]
+      }
+    ]
+  },
+  {
+    id: "private-class",
+    title: "Private Class",
+    imageUrl: "/private-class.jpg",
+    pillTag: "ONE-ON-ONE",
+    levelLabel: "PERSONALIZED",
+    description: "Exclusive 1-on-1 Certified Mentorship & Home Training",
+    demoPrice: "₹549",
+    feeLabel: "Per Class Fee",
+    monthlyFee: "Studio: ₹549 / Home: ₹849",
+    trialInfo: "Dedicated Schedule",
+    batches: [
+      {
+        id: "batch-1",
+        name: "1-on-1 Private Mentorship",
+        days: "Flexible (Mon to Sun)",
+        price: "₹549",
+        schedules: [
+          "Customize your days and time according to you",
+          "Dedicated master instructor coaching"
+        ]
+      },
+      {
+        id: "batch-2",
+        name: "Home Service",
+        days: "Flexible (At Your Home / Doorstep)",
+        price: "₹849",
+        schedules: [
+          "Instructor visits directly to your home",
+          "Personalized 1-on-1 dance training at your doorstep",
+          "Flexible timing according to your convenience"
+        ]
+      }
+    ]
+  },
+  {
+    id: "wedding-choreography",
+    title: "Wedding choreography",
+    imageUrl: "/wedding-choreography.jpg",
+    videoUrl: "/wedding-choreography.mp4",
+    videoXPosition: 50,
+    videoYPosition: 25,
+    videoZoom: 1,
+    pillTag: "SANGEET SPECIAL",
+    levelLabel: "CUSTOM ROUTINES",
+    description: "Family Sangeet & Couple Dance Preparation",
+    demoPrice: "₹3,049",
+    feeLabel: "Choreography Package",
+    monthlyFee: "From ₹3,049 to ₹10,049 full sangeet",
+    trialInfo: "Custom Package",
+    batches: [
+      {
+        id: "batch-1",
+        name: "1 Choreography",
+        days: "Flexible schedule (Studio / Home / Venue)",
+        price: "₹3,049",
+        schedules: [
+          "1 customized dance routine",
+          "Bride & Groom or Solo / Duo"
+        ]
+      },
+      {
+        id: "batch-2",
+        name: "2 Choreography",
+        days: "Flexible schedule (Studio / Home / Venue)",
+        price: "₹5,549",
+        schedules: [
+          "2 customized dance routines",
+          "Couple & family special"
+        ]
+      },
+      {
+        id: "batch-3",
+        name: "5 Choreography (Full Sangeet)",
+        days: "Full family crash rehearsal",
+        price: "₹10,049",
+        schedules: [
+          "5 customized dance routines",
+          "Full family"
+        ]
+      },
+      {
+        id: "batch-custom",
+        name: "Customize According To You",
+        days: "Flexible schedule (Studio / Home / Venue)",
+        price: "On WhatsApp",
+        schedules: [
+          "Choose any number of routines",
+          "Fully customized for your event"
+        ]
+      }
+    ]
+  }
+];
+
+export const CATEGORIES_STORAGE_KEY = 'ramys_categories_config_v32';
+
+export function sanitizeCategoryItem(cat: CategoryItem): CategoryItem {
+  const defaultCat = DEFAULT_CATEGORIES.find((d) => d.id === cat.id);
+  const videoUrl = cat.videoUrl || defaultCat?.videoUrl;
+  let imageUrl = cat.imageUrl || defaultCat?.imageUrl || '/kids-dance.jpg';
+  
+  // Permanent guarantee: Never allow old Unsplash/external stock images
+  if (!imageUrl || typeof imageUrl !== 'string' || imageUrl.includes('unsplash') || imageUrl.startsWith('http')) {
+    imageUrl = defaultCat?.imageUrl || '/kids-dance.jpg';
+  }
+
+  const videoYPosition = cat.videoYPosition ?? defaultCat?.videoYPosition;
+  const videoXPosition = cat.videoXPosition ?? defaultCat?.videoXPosition;
+  const videoZoom = cat.videoZoom ?? defaultCat?.videoZoom;
+  const imageYPosition = cat.imageYPosition ?? defaultCat?.imageYPosition;
+  const imageXPosition = cat.imageXPosition ?? defaultCat?.imageXPosition;
+  const imageZoom = cat.imageZoom ?? defaultCat?.imageZoom;
+
+  return {
+    ...cat,
+    imageUrl,
+    videoUrl,
+    videoYPosition,
+    videoXPosition,
+    videoZoom,
+    imageYPosition,
+    imageXPosition,
+    imageZoom,
+    batches: cat.batches?.map((b) => ({
+      ...b,
+      name: b.name ? b.name.replace(/\s*\/\s*week/i, '') : b.name,
+    })),
+  };
+}
+
+export function loadCategories(): CategoryItem[] {
+  try {
+    // Clear old versions to prevent stale batch timings and old cached media
+    [
+      'ramys_categories_config_v14', 'ramys_categories_config_v15', 'ramys_categories_config_v16',
+      'ramys_categories_config_v17', 'ramys_categories_config_v18', 'ramys_categories_config_v19',
+      'ramys_categories_config_v20', 'ramys_categories_config_v21', 'ramys_categories_config_v22',
+      'ramys_categories_config_v23', 'ramys_categories_config_v24', 'ramys_categories_config_v25',
+      'ramys_categories_config_v26', 'ramys_categories_config_v27', 'ramys_categories_config_v28',
+      'ramys_categories_config_v29', 'ramys_categories_config_v30', 'ramys_categories_config_v31'
+    ].forEach((k) => {
+      try { localStorage.removeItem(k); } catch {}
+    });
+
+    const saved = localStorage.getItem(CATEGORIES_STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed.map(sanitizeCategoryItem);
+      }
+    }
+  } catch {
+    // Return default categories if localStorage is unavailable or corrupt
+  }
+  return DEFAULT_CATEGORIES;
+}
+
+export function saveCategories(categories: CategoryItem[]): void {
+  try {
+    const sanitized = categories.map(sanitizeCategoryItem);
+    localStorage.setItem(CATEGORIES_STORAGE_KEY, JSON.stringify(sanitized));
+  } catch {
+    // Ignore quota or private browsing storage errors
+  }
+}

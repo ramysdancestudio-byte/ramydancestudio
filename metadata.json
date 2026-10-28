@@ -1,0 +1,8 @@
+{
+  "name": "Ramy's Dance Studio",
+  "description": "Join Ramy's Dance Studio in Ranchi for top-rated dance classes for all categories—kids, beginners, ladies batch, wedding choreography & advanced training.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

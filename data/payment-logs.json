@@ -1,0 +1,112 @@
+[
+  {
+    "trace_id": "tr_1791653626458_1329455f",
+    "order_id": "order_TmI02wm1EtSrlL",
+    "event_type": "ORDER_CREATED",
+    "source": "ORDER_API",
+    "status": "CREATED",
+    "masked_payload": {
+      "student": "s***",
+      "phone": "******5759",
+      "program": "Kids dance",
+      "planType": "monthly",
+      "amountPaise": 154900
+    },
+    "ip": "2409:40e5:209b:3ab4:88a1:1a5a:bc79:b68d",
+    "log_id": "log_1791653626738_b536a451",
+    "timestamp": "2026-10-10T17:33:46.738Z"
+  },
+  {
+    "trace_id": "tr_1791653626458_1329455f",
+    "order_id": "order_TmI02wm1EtSrlL",
+    "payment_id": "pay_TmI1FSdejqBLWg",
+    "event_type": "PAYMENT_VERIFIED",
+    "source": "CLIENT_VERIFY",
+    "status": "CAPTURED_SUCCESS",
+    "masked_payload": {
+      "amountPaise": 154900,
+      "student": "s***",
+      "phone": "******5759"
+    },
+    "ip": "2409:40e5:209b:3ab4:88a1:1a5a:bc79:b68d",
+    "log_id": "log_1791653726843_bca3bddf",
+    "timestamp": "2026-10-10T17:35:26.843Z"
+  },
+  {
+    "trace_id": "tr_1791656471195_564259e5",
+    "order_id": "order_TmIo86S4fh6xj3",
+    "event_type": "ORDER_CREATED",
+    "source": "ORDER_API",
+    "status": "CREATED",
+    "masked_payload": {
+      "student": "s***",
+      "phone": "******5759",
+      "program": "Beginner (Special 30% Off Offer)",
+      "planType": "special_offer",
+      "amountPaise": 89900
+    },
+    "ip": "2409:40e5:209b:3ab4:88a1:1a5a:bc79:b68d",
+    "log_id": "log_1791656471508_14c49bc2",
+    "timestamp": "2026-10-10T18:21:11.508Z"
+  },
+  {
+    "trace_id": "tr_1791656828236_284a3466",
+    "order_id": "order_TmIuPpLDbCfNNy",
+    "event_type": "ORDER_CREATED",
+    "source": "ORDER_API",
+    "status": "CREATED",
+    "masked_payload": {
+      "student": "s***",
+      "phone": "******5759",
+      "program": "Kids dance",
+      "planType": "demo",
+      "amountPaise": 4900
+    },
+    "ip": "2409:40e5:209b:3ab4:88a1:1a5a:bc79:b68d",
+    "log_id": "log_1791656828514_9620c92a",
+    "timestamp": "2026-10-10T18:27:08.514Z"
+  },
+  {
+    "trace_id": "tr_1791656471195_564259e5",
+    "order_id": "order_TmIo86S4fh6xj3",
+    "event_type": "RECONCILED",
+    "source": "RECONCILER",
+    "status": "ORDER_EXPIRED_TIMEOUT",
+    "masked_payload": {
+      "minutesElapsed": 1199
+    },
+    "ip": "system-reconciler",
+    "log_id": "log_1791728435789_30dc3841",
+    "timestamp": "2026-10-11T14:20:35.790Z"
+  },
+  {
+    "trace_id": "tr_1791656828236_284a3466",
+    "order_id": "order_TmIuPpLDbCfNNy",
+    "event_type": "RECONCILED",
+    "source": "RECONCILER",
+    "status": "ORDER_EXPIRED_TIMEOUT",
+    "masked_payload": {
+      "minutesElapsed": 1193
+    },
+    "ip": "system-reconciler",
+    "log_id": "log_1791728436586_81c12dfb",
+    "timestamp": "2026-10-11T14:20:36.587Z"
+  },
+  {
+    "trace_id": "tr_1791731380558_2ed8d005",
+    "order_id": "order_Tme4x7RU4EccT7",
+    "event_type": "ORDER_CREATED",
+    "source": "ORDER_API",
+    "status": "CREATED",
+    "masked_payload": {
+      "student": "A***",
+      "phone": "******3210",
+      "program": "Kids dance",
+      "planType": "demo",
+      "amountPaise": 4900
+    },
+    "ip": "127.0.0.1",
+    "log_id": "log_1791731380942_6a883481",
+    "timestamp": "2026-10-11T15:09:40.942Z"
+  }
+]
